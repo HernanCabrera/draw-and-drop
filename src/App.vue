@@ -1,12 +1,17 @@
 <template lang="pug">
   #app
-    .contenedor-remera(@mousemove="moverImg")
+    .contenedor-remera(
+                      @mousemove="moverImg"
+                      @touchmove="moverImg"
+    )
       figure.remera
         img.imagen(src="src/assets/remera.png")
       .contenedor-icon
         .icon-actual(
               @mousedown="escucharClick"
               @mouseup="escucharSalidaDelClick"
+              @touchstart="escucharClick"
+              @touchend="escucharSalidaDelClick"
               :class="iconoActual" 
               :style="{ color: colorActual, fontSize: tamanoActual + 'px', left: posicionX, top: posicionY }"
         )
